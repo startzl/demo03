@@ -1,0 +1,48 @@
+server:
+  servlet:
+    context-path: /boot
+
+#mybatis
+mybatis:
+  type-aliases-package: com.example.pojo
+  #mapper-locations: classpath:com/example/dao/*.xml
+  configuration:
+    auto-mapping-behavior: full
+    use-generated-keys: true
+
+#分页
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  page-size-zero: true
+
+#数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///news?serverTimezone=UTC
+    username: root
+    password: root
+
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: GMT+8
+
+
+#spring:
+  #静态文件请求匹配方式
+  mvc:
+    static-path-pattern: /**
+  #修改默认的静态寻址资源目录
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  thymeleaf:
+    encoding: UTF-8
+    #开发时关闭缓存,不然没法看到实时页面
+    cache: false
+    #prefix: classpath:/templates/
+    #suffix: .html
+
+
